@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Eat Da Burger</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 textcenter" id="top-section">
+        <img src="/assets/img/burger.jpg" alt="Burger">
+        <h1>Eat-Da-Burger!</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 textcenter middle-section">
+        <p>Enter a burger you want to eat & click the "Submit" button.</p>
+        <form class="add-burger">
+          <input type="text" class="form-control" name="burger_name" value="" id="burger_name">
+          <button type="submit" class="btn btn-primary" id="submitbtn">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center enter_section">
+        <p>Eat and Delete a burger.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" id="not_devoured">
+        <div class="row burger-row">
+          <div class="col-md-9 text-center"> </div>
+          <!-- <div class="col-md-3 text-center"><button type="button" class="btn btn-primary devour">Devour</button></div> -->
+        </div>
+        <div class="row burger-row">
+          <div class="col-md-9 text-center"> </div>
+          <!-- <div class="col-md-3 text-center"><button type="button" class="btn btn-primary devour">Devour</button></div> -->
+        </div>
+        <div class="row burger-row">
+          <div class="col-md-9 text-center"></div>
+          <!-- <div class="col-md-3 text-center"><button type="button" class="btn btn-primary devour">Devour</button></div> -->
+        </div>
+      </div>
+      <div class="col-md-6" id="devoured"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="/assets/js/burger.js"></script>
+</body>
+
+</html>
