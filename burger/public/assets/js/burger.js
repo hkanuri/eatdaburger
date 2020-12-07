@@ -61,7 +61,7 @@ $(document).ready(function () {
     console.log(id);
     
     var devouredBurger = {
-
+      // devoured = 0
     };
 
     // Send the PUT request.
