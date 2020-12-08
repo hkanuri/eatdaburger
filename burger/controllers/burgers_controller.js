@@ -35,7 +35,7 @@ router.put("/burgers/:id", function(req, res) {
   console.log("condition", condition);
 
   burgers.update({
-    burger_name: req.body.burger_name,
+  devoured: req.body.devoured,
     // author: req.body.author
   }, condition, function(result) {
     if (result.changedRows == 0) {

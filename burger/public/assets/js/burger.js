@@ -4,11 +4,21 @@ $(document).ready(function () {
     // var burger_name = data.burger_name;
     // var len = burger_name.length;
     var burger_elem = $("#not_devoured")
+    const devouredEl = $('#devoured')
     for (let index = 0; index < data.burgers.length; index++) {
+      // if devoured is true create a delete
+      // else print button button
+      const devoured = data.burgers[index].devoured
+
+      if (devoured == true) {
+        devouredEl.prepend(`<ul><p>${data.burgers[index].burger_name}<button data=${data.burgers[index].id} data-name=${data.burgers[index].burger_name} class='eaten'>Eaten</button></p></ul>`)
+    }
+      else{burger_elem.prepend(`<ul><p>${data.burgers[index].burger_name}<button data=${data.burgers[index].id} data-name=${data.burgers[index].burger_name} class='devour'>Devour</button></p></ul>`)
+    }
 
       console.log(data.burgers[index].burger_name)
-      burger_elem.prepend(`<ul><p>${data.burgers[index].burger_name}<button data=${data.burgers[index].id} class='devour'>Devour</button></p></ul>`)
-    }
+    //   burger_elem.prepend(`<ul><p>${data.burgers[index].burger_name}<button data=${data.burgers[index].id} data-name=${data.burgers[index].burger_name} class='devour'>${devoured}</button></p></ul>`)
+   }
 });
 
   // $(document).on("click",".delQuote", function(event) {
@@ -34,8 +44,11 @@ $(document).ready(function () {
     console.log("this is happening")
 
     var newBurger = {
+
       burger_name: $("#burger_name").val().trim()
+
     };
+    console.log(newBurger);
 
     // Send the POST request.
     $.ajax("/burgers", {
@@ -59,15 +72,19 @@ $(document).ready(function () {
 
     var id = $(event.target).attr("data")
     console.log(id);
-    
+    const burger_name = $(event.target).attr("data-name");
+
     var devouredBurger = {
-      // devoured = 0
+      devoured : true,
+      
     };
 
     // Send the PUT request.
-    $.ajax("/burger/" + id, {
+    $.ajax("/burgers/" + id, {
       type: "PUT",
-      data: devouredBurger
+      data: JSON.stringify(devouredBurger),
+      dataType: 'json',
+      contentType: 'application/json'
     }).then(
       function() {
         console.log("updated id ", id);
